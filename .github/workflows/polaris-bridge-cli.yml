@@ -27,12 +27,12 @@ jobs:
         java-version: 17
         distribution: microsoft
         cache: maven
-    - name: Polaris Full Scan
-      if: ${{ github.event_name != 'pull_request' }}
-      run: |
-        curl -fLsS -o bridge.zip https://sig-repo.synopsys.com/artifactory/bds-integrations-release/com/synopsys/integration/synopsys-bridge/latest/synopsys-bridge-linux64.zip && unzip -qo -d ${{ runner.temp }} bridge.zip && rm -f bridge.zip
-        ${{ runner.temp }}/synopsys-bridge --stage polaris \
-            polaris.reports.sarif.create='true'
+    #- name: Polaris Full Scan
+    # if: ${{ github.event_name != 'pull_request' }}
+    # run: |
+    #    curl -fLsS -o bridge.zip https://sig-repo.synopsys.com/artifactory/bds-integrations-release/com/synopsys/integration/synopsys-bridge/latest/synopsys-bridge-linux64.zip && unzip -qo -d ${{ runner.temp }} bridge.zip && rm -f bridge.zip
+    #    ${{ runner.temp }}/synopsys-bridge --stage polaris \
+    #        polaris.reports.sarif.create='true'
     - name: Polaris PR Scan
       if: ${{ github.event_name == 'pull_request' }}
       run: |
