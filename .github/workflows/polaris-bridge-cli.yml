@@ -9,6 +9,7 @@ on:
 jobs:
   polaris:
     runs-on: ubuntu-latest
+    environment: POLARIS_SERVERURL
     env:
       BRIDGE_POLARIS_SERVERURL: ${{ vars.POLARIS_SERVERURL }}
       BRIDGE_POLARIS_ACCESSTOKEN: ${{ secrets.POLARIS_ACCESSTOKEN }}
